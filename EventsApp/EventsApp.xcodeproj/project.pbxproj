@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31C15B45219A0D0200443940 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B44219A0D0200443940 /* APIRequest.swift */; };
+		31C15B47219A0D1900443940 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B46219A0D1900443940 /* APIResponse.swift */; };
+		31C15B49219A0D3B00443940 /* ClientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B48219A0D3B00443940 /* ClientAPI.swift */; };
+		31C15B4B219A0D5300443940 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B4A219A0D5300443940 /* APIError.swift */; };
 		31EA47B1219A039C00FD8A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA47B0219A039C00FD8A31 /* AppDelegate.swift */; };
 		31EA47B6219A039C00FD8A31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31EA47B4219A039C00FD8A31 /* Main.storyboard */; };
 		31EA47B8219A039E00FD8A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31EA47B7219A039E00FD8A31 /* Assets.xcassets */; };
@@ -31,6 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31C15B44219A0D0200443940 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		31C15B46219A0D1900443940 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		31C15B48219A0D3B00443940 /* ClientAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAPI.swift; sourceTree = "<group>"; };
+		31C15B4A219A0D5300443940 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		31EA47AD219A039C00FD8A31 /* EventsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EA47B0219A039C00FD8A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EA47B5219A039C00FD8A31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -155,6 +163,10 @@
 		31EA47DD219A083900FD8A31 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				31C15B44219A0D0200443940 /* APIRequest.swift */,
+				31C15B46219A0D1900443940 /* APIResponse.swift */,
+				31C15B48219A0D3B00443940 /* ClientAPI.swift */,
+				31C15B4A219A0D5300443940 /* APIError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -279,10 +291,14 @@
 				31EA47D8219A06EF00FD8A31 /* EventDetailsViewController.swift in Sources */,
 				31EA47DA219A074D00FD8A31 /* EventsListViewModel.swift in Sources */,
 				31EA47B1219A039C00FD8A31 /* AppDelegate.swift in Sources */,
+				31C15B49219A0D3B00443940 /* ClientAPI.swift in Sources */,
 				31EA47D6219A06E400FD8A31 /* EventsViewController.swift in Sources */,
 				31EA47DC219A075F00FD8A31 /* EventDetailsViewModel.swift in Sources */,
 				31EA47E3219A090900FD8A31 /* Event.swift in Sources */,
+				31C15B45219A0D0200443940 /* APIRequest.swift in Sources */,
 				31EA47E1219A08DB00FD8A31 /* EventsDataSource.swift in Sources */,
+				31C15B47219A0D1900443940 /* APIResponse.swift in Sources */,
+				31C15B4B219A0D5300443940 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
