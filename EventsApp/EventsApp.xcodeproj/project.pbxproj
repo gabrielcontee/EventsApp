@@ -16,6 +16,7 @@
 		31C15B52219A266B00443940 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B51219A266B00443940 /* Mocks.swift */; };
 		31C15B54219A26B600443940 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B53219A26B600443940 /* Response.swift */; };
 		31C15B56219A28E600443940 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B55219A28E600443940 /* Assembly.swift */; };
+		31C15B58219A2D3400443940 /* GetEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B57219A2D3400443940 /* GetEvents.swift */; };
 		31EA47B1219A039C00FD8A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA47B0219A039C00FD8A31 /* AppDelegate.swift */; };
 		31EA47B6219A039C00FD8A31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31EA47B4219A039C00FD8A31 /* Main.storyboard */; };
 		31EA47B8219A039E00FD8A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31EA47B7219A039E00FD8A31 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		31C15B51219A266B00443940 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		31C15B53219A26B600443940 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		31C15B55219A28E600443940 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		31C15B57219A2D3400443940 /* GetEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEvents.swift; sourceTree = "<group>"; };
 		31EA47AD219A039C00FD8A31 /* EventsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EA47B0219A039C00FD8A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31EA47B5219A039C00FD8A31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				31C15B4A219A0D5300443940 /* APIError.swift */,
 				31C15B4C219A23DC00443940 /* Result.swift */,
 				31C15B53219A26B600443940 /* Response.swift */,
+				31C15B57219A2D3400443940 /* GetEvents.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				31C15B49219A0D3B00443940 /* ClientAPI.swift in Sources */,
 				31EA47D6219A06E400FD8A31 /* EventsViewController.swift in Sources */,
 				31EA47DC219A075F00FD8A31 /* EventDetailsViewModel.swift in Sources */,
+				31C15B58219A2D3400443940 /* GetEvents.swift in Sources */,
 				31C15B54219A26B600443940 /* Response.swift in Sources */,
 				31C15B4D219A23DC00443940 /* Result.swift in Sources */,
 				31EA47E3219A090900FD8A31 /* Event.swift in Sources */,

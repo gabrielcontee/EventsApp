@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol EventsViewModelDelegate {
+    
+}
+
 class EventsListViewModel: NSObject {
     
+    var dataSource: EventsDataSourceProtocol!
 }
