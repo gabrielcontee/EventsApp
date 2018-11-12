@@ -8,7 +8,31 @@
 
 import Foundation
 
-class EventsDataSource: NSObject {
+protocol EventsDataSourceProtocol {
+    func fetchEvents(completion: @escaping (Error?)->())
+    var events: [Event] {get set}
+}
 
+class EventsDataSource: NSObject, EventsDataSourceProtocol {
+
+    typealias Id = Int
     
+    private lazy var clientAPI = ClientAPI()
+    
+    var events: [Event] = []
+    
+    // Sends a fetch request for the list of tasks from API
+    func fetchEvents(completion: @escaping (Error?)->()){
+        
+        clientAPI.send(GetEvents()) { (result) in
+            switch result{
+            case .success(let events):
+                self.events = events
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error)
+            }
+        }
+    }
 }

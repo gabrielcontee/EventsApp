@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsViewController: UIViewController{
+class EventDetailsViewController: UIViewController{
     
-    
+    var viewModel: DetailViewModelDelegate!
 }
