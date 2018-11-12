@@ -10,7 +10,7 @@ import Foundation
 
 class ClientAPI {
     
-    private let baseEndpointUrl = ""
+    private let baseEndpointUrl = "http://5b840ba5db24a100142dcd8c.mockapi.io/api/events"
     private let session = URLSession(configuration: .default)
     
     /// Sends a request to API servers, calling the completion method when finished
