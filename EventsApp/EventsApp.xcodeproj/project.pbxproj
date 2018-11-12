@@ -75,6 +75,11 @@
 		31EA47AF219A039C00FD8A31 /* EventsApp */ = {
 			isa = PBXGroup;
 			children = (
+				31EA47D3219A063500FD8A31 /* SupportFiles */,
+				31EA47D4219A064E00FD8A31 /* Auxiliar */,
+				31EA47D2219A063200FD8A31 /* Model */,
+				31EA47D1219A063000FD8A31 /* ViewModel */,
+				31EA47D0219A062C00FD8A31 /* View */,
 				31EA47B0219A039C00FD8A31 /* AppDelegate.swift */,
 				31EA47B4219A039C00FD8A31 /* Main.storyboard */,
 				31EA47B7219A039E00FD8A31 /* Assets.xcassets */,
@@ -91,6 +96,41 @@
 				31EA47C7219A039F00FD8A31 /* Info.plist */,
 			);
 			path = EventsAppTests;
+			sourceTree = "<group>";
+		};
+		31EA47D0219A062C00FD8A31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31EA47D1219A063000FD8A31 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		31EA47D2219A063200FD8A31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		31EA47D3219A063500FD8A31 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		31EA47D4219A064E00FD8A31 /* Auxiliar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auxiliar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
