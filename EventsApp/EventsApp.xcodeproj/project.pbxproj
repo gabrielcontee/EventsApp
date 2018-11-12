@@ -96,6 +96,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		314F0D5D219A42400019DF32 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31EA47D5219A06E300FD8A31 /* EventsViewController.swift */,
+				31EA47D7219A06EF00FD8A31 /* EventDetailsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		314F0D5E219A42560019DF32 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		31C15B4E219A24CC00443940 /* OfflineData */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,8 +170,8 @@
 		31EA47D0219A062C00FD8A31 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				31EA47D5219A06E300FD8A31 /* EventsViewController.swift */,
-				31EA47D7219A06EF00FD8A31 /* EventDetailsViewController.swift */,
+				314F0D5E219A42560019DF32 /* Cell */,
+				314F0D5D219A42400019DF32 /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
