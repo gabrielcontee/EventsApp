@@ -12,7 +12,7 @@ protocol DetailViewModelDelegate {
     
 }
 
-class EventDetailsViewModel: NSObject {
+class EventDetailsViewModel: NSObject, DetailViewModelDelegate {
     
     var dataSource: EventsDataSourceProtocol!
 }

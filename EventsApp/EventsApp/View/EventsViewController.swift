@@ -11,4 +11,12 @@ import UIKit
 class EventsViewController: UIViewController{
     
     var viewModel: EventsViewModelDelegate!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.fetchAllTasks {
+            
+        }
+    }
 }
