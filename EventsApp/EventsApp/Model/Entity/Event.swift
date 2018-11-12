@@ -8,6 +8,8 @@
 
 import Foundation
 
-class Event: NSObject {
+struct Event: Decodable{
+    
+    let id: String?
     
 }
