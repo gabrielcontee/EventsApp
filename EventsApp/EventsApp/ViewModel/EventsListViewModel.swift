@@ -9,7 +9,10 @@
 import Foundation
 
 protocol EventsViewModelDelegate {
-    
+    func fetchAllTasks(completion:(()->())?)
+    func task(for index: Int) -> String?
+    func numberOfTasks() -> Int
+    var events: [Event] {get}
 }
 
 protocol TaskFetchDelegate {
@@ -20,7 +23,7 @@ protocol ErrorAlertDelegate {
     func alertError(msg: String)
 }
 
-class EventsListViewModel: NSObject {
+class EventsListViewModel: NSObject, EventsViewModelDelegate {
     
     var dataSource: EventsDataSourceProtocol!
     
@@ -44,6 +47,7 @@ class EventsListViewModel: NSObject {
         dataSource.fetchEvents { (error) in
             if error == nil{
                 print("Finished fetching events!")
+                print(self.events)
                 self.fetchDelegate?.loadData()
                 completion?()
             }else{

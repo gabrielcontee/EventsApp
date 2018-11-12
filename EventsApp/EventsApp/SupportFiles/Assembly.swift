@@ -37,7 +37,7 @@ extension SwinjectStoryboard{
     }
 
     private class func setupEventsViewModel(){
-        defaultContainer.register(EventsListViewModel.self) { r in
+        defaultContainer.register(EventsViewModelDelegate.self) { r in
             let vm = EventsListViewModel()
             vm.dataSource = r.resolve(EventsDataSourceProtocol.self)
             return vm
@@ -45,7 +45,7 @@ extension SwinjectStoryboard{
     }
 
     private class func setupDetailsViewModel(){
-        defaultContainer.register(EventDetailsViewModel.self) { r in
+        defaultContainer.register(DetailViewModelDelegate.self) { r in
             let vm = EventDetailsViewModel()
             vm.dataSource = r.resolve(EventsDataSourceProtocol.self)
             return vm
