@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Events View Controller-->
         <scene sceneID="t56-a4-rEV">
             <objects>
-                <viewController id="R7h-7Q-HSZ" sceneMemberID="viewController">
+                <viewController id="R7h-7Q-HSZ" customClass="EventsViewController" customModule="EventsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NGl-Jm-mD9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="536.79999999999995" y="26.53673163418291"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Event Details View Controller-->
         <scene sceneID="ZFd-2d-2Xj">
             <objects>
-                <viewController id="Y7h-ag-PZU" customClass="DetailsViewController" customModule="appConte" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y7h-ag-PZU" customClass="EventDetailsViewController" customModule="EventsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fDi-Pd-TEM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,11 +127,11 @@
                         <viewLayoutGuide key="safeArea" id="sKa-qy-HH6"/>
                     </view>
                     <connections>
-                        <outlet property="checkInButton" destination="N9a-fy-fa5" id="9c8-Mo-XBv"/>
-                        <outlet property="imageView" destination="blE-CB-ECU" id="Dju-4X-tiA"/>
-                        <outlet property="mapView" destination="zqW-iL-WJt" id="puE-HE-Bz2"/>
-                        <outlet property="textView" destination="Zp5-l0-DFh" id="5h6-R5-h6Y"/>
-                        <outlet property="titleLabel" destination="QUy-eo-EHj" id="wPj-Ap-d2p"/>
+                        <outlet property="checkInButton" destination="N9a-fy-fa5" id="F97-JJ-dJE"/>
+                        <outlet property="eventDescription" destination="Zp5-l0-DFh" id="1xA-Dl-KRE"/>
+                        <outlet property="eventImageView" destination="blE-CB-ECU" id="MDe-xf-upz"/>
+                        <outlet property="eventTitleLabel" destination="QUy-eo-EHj" id="HPx-ZT-WbW"/>
+                        <outlet property="mapView" destination="zqW-iL-WJt" id="lh3-vM-7Em"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlt-bM-MRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,7 +141,7 @@
         <!--Main Table View Controller-->
         <scene sceneID="1PL-oJ-DGo">
             <objects>
-                <tableViewController id="KfJ-do-tx4" customClass="MainTableViewController" customModule="appConte" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="KfJ-do-tx4" customClass="MainTableViewController" customModule="EventsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RDj-WD-F2P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
