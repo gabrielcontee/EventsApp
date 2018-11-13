@@ -15,16 +15,18 @@ protocol EventsDataSourceProtocol {
 
 protocol EventsDetailsDataSourceProtocol {
     func fetchDetails(id: String, completion: @escaping (Error?)->())
-    func getCurrentEvent(id: String) -> Event?
+    var currentEvent: EventDetails? {get}
 }
 
 class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSourceProtocol {
-
+    
     typealias Id = Int
     
     private lazy var clientAPI = ClientAPI()
     
     var events: [Event] = []
+    
+    var currentEvent: EventDetails?
     
     // Sends a fetch request for the list of tasks from API
     func fetchEvents(completion: @escaping (Error?)->()){
@@ -43,9 +45,19 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
     
     func fetchDetails(id: String, completion: @escaping (Error?) -> ()) {
         
+        clientAPI.send(GetEventDetails(id: id)) { (result) in
+            switch result{
+            case .success(let event):
+                self.currentEvent = event
+                completion(nil)
+            case .failure(let error):
+                print(error)
+                completion(error)
+            }
+        }
     }
     
-    func getCurrentEvent(id: String) -> Event?{
+    private func getCurrentEvent(id: String) -> Event?{
         let event = events.filter({$0.id == id}).first
             ?? nil
         guard let current = event else{
@@ -53,4 +65,5 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
         }
         return current
     }
+
 }

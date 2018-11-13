@@ -28,6 +28,13 @@ class MainTableViewController: UITableViewController {
         
         self.tableView.rowHeight = 400.0
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == detailsSegue) {
+            let detailsController: EventDetailsViewController = segue.destination as! EventDetailsViewController
+            detailsController.viewModel.eventId = viewModel.selectedEventId
+        }
+    }
 }
 
 // Datasource
@@ -52,6 +59,10 @@ extension MainTableViewController {
 // Delegate
 extension MainTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let id  = viewModel.event(for: indexPath.row)?.id {
+            viewModel.selectedEventId = id
+        }
+        
         self.performSegue(withIdentifier: detailsSegue, sender: self)
     }
 }

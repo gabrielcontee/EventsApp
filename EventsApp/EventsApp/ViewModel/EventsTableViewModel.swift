@@ -16,6 +16,8 @@ class EventsTableViewModel: NSObject {
     
     lazy var eventsBox: Box<[Event]> = Box([])
     
+    lazy var selectedEventId: String = ""
+    
     override init() {
         super.init()
         

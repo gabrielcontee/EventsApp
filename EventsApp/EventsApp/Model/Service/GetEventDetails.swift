@@ -10,7 +10,7 @@ import Foundation
 
 struct GetEventDetails: APIRequest {
     
-    typealias Response = Event
+    typealias Response = EventDetails
     
     var resourceName: String {
         return "/events/\(id)"

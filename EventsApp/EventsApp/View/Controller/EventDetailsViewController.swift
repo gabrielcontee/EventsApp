@@ -17,4 +17,15 @@ class EventDetailsViewController: UIViewController{
     @IBOutlet weak var checkInButton: UIButton!
     @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var eventDescription: UITextView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.fetchEventData(eventId: viewModel.eventId) {
+        }
+        
+        
+    }
+    
+    
 }

@@ -10,14 +10,21 @@ import Foundation
 
 protocol DetailViewModelDelegate {
     
+    func fetchEventData(eventId: String, completion: @escaping ()->())
+    var eventId: String {get set}
 }
 
 class EventDetailsViewModel: NSObject, DetailViewModelDelegate {
     
     var dataSource: EventsDetailsDataSourceProtocol!
     
-    var currentEvent: Event? { return dataSource.getCurrentEvent(id: "1") }
+    var currentEvent: EventDetails? { return dataSource?.currentEvent }
     
+    var eventId: String = ""
+    
+    lazy var eventTitle: Box<String> = Box("")
+    lazy var eventImage: Box<String> = Box("")
+    lazy var eventDescription: Box<String> = Box("")
     
     func fetchEventData(eventId: String, completion: @escaping ()->()){
         dataSource.fetchDetails(id: eventId) { (error) in
