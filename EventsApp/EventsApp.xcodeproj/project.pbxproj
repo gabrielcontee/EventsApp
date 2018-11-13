@@ -11,6 +11,10 @@
 		314F0D62219A438C0019DF32 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314F0D60219A438C0019DF32 /* MainTableViewCell.xib */; };
 		314F0D64219A43A20019DF32 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F0D63219A43A20019DF32 /* MainTableViewController.swift */; };
 		314F0D66219A43B50019DF32 /* MainTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314F0D65219A43B50019DF32 /* MainTableViewController.xib */; };
+		314F0D6A219A57640019DF32 /* EventsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F0D69219A57640019DF32 /* EventsTableViewModel.swift */; };
+		314F0D6C219A57CC0019DF32 /* Boxing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F0D6B219A57CC0019DF32 /* Boxing.swift */; };
+		314F0D6E219A57DB0019DF32 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F0D6D219A57DB0019DF32 /* Listener.swift */; };
+		314F0D72219A5CE20019DF32 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F0D71219A5CE20019DF32 /* UIImageView.swift */; };
 		31C15B45219A0D0200443940 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B44219A0D0200443940 /* APIRequest.swift */; };
 		31C15B47219A0D1900443940 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B46219A0D1900443940 /* APIResponse.swift */; };
 		31C15B49219A0D3B00443940 /* ClientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B48219A0D3B00443940 /* ClientAPI.swift */; };
@@ -54,6 +58,10 @@
 		314F0D60219A438C0019DF32 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		314F0D63219A43A20019DF32 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		314F0D65219A43B50019DF32 /* MainTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewController.xib; sourceTree = "<group>"; };
+		314F0D69219A57640019DF32 /* EventsTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewModel.swift; sourceTree = "<group>"; };
+		314F0D6B219A57CC0019DF32 /* Boxing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boxing.swift; sourceTree = "<group>"; };
+		314F0D6D219A57DB0019DF32 /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
+		314F0D71219A5CE20019DF32 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		31C15B44219A0D0200443940 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		31C15B46219A0D1900443940 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		31C15B48219A0D3B00443940 /* ClientAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAPI.swift; sourceTree = "<group>"; };
@@ -124,6 +132,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		314F0D70219A5CD20019DF32 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				314F0D71219A5CE20019DF32 /* UIImageView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		31C15B4E219A24CC00443940 /* OfflineData */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +198,7 @@
 		31EA47D0219A062C00FD8A31 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				314F0D70219A5CD20019DF32 /* Extension */,
 				314F0D5E219A42560019DF32 /* Cell */,
 				314F0D5D219A42400019DF32 /* Controller */,
 			);
@@ -191,6 +208,7 @@
 		31EA47D1219A063000FD8A31 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				314F0D69219A57640019DF32 /* EventsTableViewModel.swift */,
 				31EA47D9219A074D00FD8A31 /* EventsListViewModel.swift */,
 				31EA47DB219A075F00FD8A31 /* EventDetailsViewModel.swift */,
 			);
@@ -219,6 +237,8 @@
 		31EA47D4219A064E00FD8A31 /* Auxiliar */ = {
 			isa = PBXGroup;
 			children = (
+				314F0D6B219A57CC0019DF32 /* Boxing.swift */,
+				314F0D6D219A57DB0019DF32 /* Listener.swift */,
 			);
 			path = Auxiliar;
 			sourceTree = "<group>";
@@ -475,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314F0D6A219A57640019DF32 /* EventsTableViewModel.swift in Sources */,
 				31EA47D8219A06EF00FD8A31 /* EventDetailsViewController.swift in Sources */,
 				31EA47DA219A074D00FD8A31 /* EventsListViewModel.swift in Sources */,
 				314F0D64219A43A20019DF32 /* MainTableViewController.swift in Sources */,
@@ -484,14 +505,17 @@
 				31EA47D6219A06E400FD8A31 /* EventsViewController.swift in Sources */,
 				31EA47DC219A075F00FD8A31 /* EventDetailsViewModel.swift in Sources */,
 				31C15B58219A2D3400443940 /* GetEvents.swift in Sources */,
+				314F0D6C219A57CC0019DF32 /* Boxing.swift in Sources */,
 				31C15B54219A26B600443940 /* Response.swift in Sources */,
 				31C15B4D219A23DC00443940 /* Result.swift in Sources */,
 				314F0D61219A438C0019DF32 /* MainTableViewCell.swift in Sources */,
 				31EA47E3219A090900FD8A31 /* Event.swift in Sources */,
 				31C15B45219A0D0200443940 /* APIRequest.swift in Sources */,
+				314F0D72219A5CE20019DF32 /* UIImageView.swift in Sources */,
 				31EA47E1219A08DB00FD8A31 /* EventsDataSource.swift in Sources */,
 				31C15B47219A0D1900443940 /* APIResponse.swift in Sources */,
 				31C15B4B219A0D5300443940 /* APIError.swift in Sources */,
+				314F0D6E219A57DB0019DF32 /* Listener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

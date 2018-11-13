@@ -16,12 +16,7 @@ class MainTableViewCell: UITableViewCell {
     
     func setup(title: String, imageURL: String) {
         self.cellTitle.text = title
-        // setar a image
-    }
-    
-    func reset() {
-        self.cellTitle.text = nil
-        self.contentImageView.image = nil
+        self.contentImageView.downloaded(link: imageURL)
     }
     
 }
