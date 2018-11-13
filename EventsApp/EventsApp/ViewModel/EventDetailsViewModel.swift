@@ -11,6 +11,7 @@ import Foundation
 protocol DetailViewModelDelegate {
     
     func fetchEventData(eventId: String, completion: @escaping ()->())
+    func makeCheckin()
     var eventId: String {get set}
     var eventTitle: Box<String> {get}
     var eventImage: Box<String> {get}
@@ -46,6 +47,10 @@ class EventDetailsViewModel: NSObject, DetailViewModelDelegate {
                 completion()
             }
         }
+    }
+    
+    func makeCheckin(){
+        dataSource.checkinRequest(eventId: self.eventId)
     }
     
 }

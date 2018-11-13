@@ -14,6 +14,7 @@ struct EventDetails: Decodable{
     let title: String?
     let price: Float?
     let image: String?
+    let email: String?
     let description: String?
 }
 

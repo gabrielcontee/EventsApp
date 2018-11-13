@@ -41,5 +41,8 @@ class EventDetailsViewController: UIViewController{
         
     }
     
+    @IBAction func makeCheckIn(_ sender: UIButton) {
+        viewModel.makeCheckin()
+    }
     
 }

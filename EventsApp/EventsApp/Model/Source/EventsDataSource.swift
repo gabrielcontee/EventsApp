@@ -15,6 +15,7 @@ protocol EventsDataSourceProtocol {
 
 protocol EventsDetailsDataSourceProtocol {
     func fetchDetails(id: String, completion: @escaping (Error?)->())
+    func checkinRequest(eventId: String)
     var currentEvent: EventDetails? {get}
 }
 
@@ -67,10 +68,13 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
     }
     
     func checkinRequest(eventId: String){
-        guard let event = getCurrentEvent(id: eventId) else{
+        guard let event = getCurrentEvent(id: eventId), let id = event.id, let name = event.title, let email = event.email else{
             return
         }
-        clientAPI.post(parameters: [:])
+        
+        let parameters: [String: Any] = ["eventId": id, "name": name, "email": email]
+        
+        clientAPI.post(parameters: parameters)
     }
 
 }
