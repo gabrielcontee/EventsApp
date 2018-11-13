@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314F0D61219A438C0019DF32 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F0D5F219A438C0019DF32 /* MainTableViewCell.swift */; };
+		314F0D62219A438C0019DF32 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314F0D60219A438C0019DF32 /* MainTableViewCell.xib */; };
+		314F0D64219A43A20019DF32 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314F0D63219A43A20019DF32 /* MainTableViewController.swift */; };
+		314F0D66219A43B50019DF32 /* MainTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314F0D65219A43B50019DF32 /* MainTableViewController.xib */; };
 		31C15B45219A0D0200443940 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B44219A0D0200443940 /* APIRequest.swift */; };
 		31C15B47219A0D1900443940 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B46219A0D1900443940 /* APIResponse.swift */; };
 		31C15B49219A0D3B00443940 /* ClientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C15B48219A0D3B00443940 /* ClientAPI.swift */; };
@@ -46,6 +50,10 @@
 		02DE6EC94512C53684533F29 /* Pods-EventsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventsAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventsAppTests/Pods-EventsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1C42C30D825B6E057DA87DC4 /* Pods_EventsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0C08A49FD83BB921D7616E /* Pods-EventsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventsApp/Pods-EventsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		314F0D5F219A438C0019DF32 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		314F0D60219A438C0019DF32 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		314F0D63219A43A20019DF32 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		314F0D65219A43B50019DF32 /* MainTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewController.xib; sourceTree = "<group>"; };
 		31C15B44219A0D0200443940 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		31C15B46219A0D1900443940 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		31C15B48219A0D3B00443940 /* ClientAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAPI.swift; sourceTree = "<group>"; };
@@ -96,6 +104,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		314F0D5D219A42400019DF32 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31EA47D5219A06E300FD8A31 /* EventsViewController.swift */,
+				31EA47D7219A06EF00FD8A31 /* EventDetailsViewController.swift */,
+				314F0D63219A43A20019DF32 /* MainTableViewController.swift */,
+				314F0D65219A43B50019DF32 /* MainTableViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		314F0D5E219A42560019DF32 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				314F0D5F219A438C0019DF32 /* MainTableViewCell.swift */,
+				314F0D60219A438C0019DF32 /* MainTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		31C15B4E219A24CC00443940 /* OfflineData */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,8 +182,8 @@
 		31EA47D0219A062C00FD8A31 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				31EA47D5219A06E300FD8A31 /* EventsViewController.swift */,
-				31EA47D7219A06EF00FD8A31 /* EventDetailsViewController.swift */,
+				314F0D5E219A42560019DF32 /* Cell */,
+				314F0D5D219A42400019DF32 /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -331,7 +359,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				31EA47BB219A039E00FD8A31 /* LaunchScreen.storyboard in Resources */,
+				314F0D66219A43B50019DF32 /* MainTableViewController.xib in Resources */,
 				31EA47B8219A039E00FD8A31 /* Assets.xcassets in Resources */,
+				314F0D62219A438C0019DF32 /* MainTableViewCell.xib in Resources */,
 				31EA47B6219A039C00FD8A31 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +477,7 @@
 			files = (
 				31EA47D8219A06EF00FD8A31 /* EventDetailsViewController.swift in Sources */,
 				31EA47DA219A074D00FD8A31 /* EventsListViewModel.swift in Sources */,
+				314F0D64219A43A20019DF32 /* MainTableViewController.swift in Sources */,
 				31EA47B1219A039C00FD8A31 /* AppDelegate.swift in Sources */,
 				31C15B56219A28E600443940 /* Assembly.swift in Sources */,
 				31C15B49219A0D3B00443940 /* ClientAPI.swift in Sources */,
@@ -455,6 +486,7 @@
 				31C15B58219A2D3400443940 /* GetEvents.swift in Sources */,
 				31C15B54219A26B600443940 /* Response.swift in Sources */,
 				31C15B4D219A23DC00443940 /* Result.swift in Sources */,
+				314F0D61219A438C0019DF32 /* MainTableViewCell.swift in Sources */,
 				31EA47E3219A090900FD8A31 /* Event.swift in Sources */,
 				31C15B45219A0D0200443940 /* APIRequest.swift in Sources */,
 				31EA47E1219A08DB00FD8A31 /* EventsDataSource.swift in Sources */,
