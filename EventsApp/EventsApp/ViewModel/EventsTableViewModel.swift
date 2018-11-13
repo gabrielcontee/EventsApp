@@ -25,12 +25,12 @@ class EventsTableViewModel: NSObject, TableViewModelDelegate {
     
     var selectedEventId: String = ""
     
-    override init() {
+    init(dataSource: EventsDataSourceProtocol?) {
+        self.dataSource = dataSource
+        
         super.init()
         
-        dataSource = EventsDataSource()
-        
-        dataSource.fetchEvents { [unowned self] (error) in
+        dataSource?.fetchEvents { [unowned self] (error) in
             if error == nil{
                 self.eventsBox.value = self.events
             }

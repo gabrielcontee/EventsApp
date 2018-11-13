@@ -65,5 +65,12 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
         }
         return current
     }
+    
+    func checkinRequest(eventId: String){
+        guard let event = getCurrentEvent(id: eventId) else{
+            return
+        }
+        clientAPI.post(parameters: [:])
+    }
 
 }

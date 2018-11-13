@@ -27,7 +27,6 @@ extension SwinjectStoryboard{
     }
     
     
-    
     private class func setupViewController(){
         
         defaultContainer.storyboardInitCompleted(EventsViewController.self) { (r, c) in
@@ -64,8 +63,8 @@ extension SwinjectStoryboard{
     
     private class func setupTableViewModel(){
         defaultContainer.register(TableViewModelDelegate.self) { r in
-            let vm = EventsTableViewModel()
-            vm.dataSource = r.resolve(DataSourceProtocol.self)
+            let ds = r.resolve(DataSourceProtocol.self)
+            let vm = EventsTableViewModel(dataSource: ds)
             return vm
         }
     }

@@ -15,10 +15,6 @@ protocol EventsViewModelDelegate {
     var events: [Event] {get}
 }
 
-protocol TaskFetchDelegate {
-    func loadData()
-}
-
 protocol ErrorAlertDelegate {
     func alertError(msg: String)
 }
@@ -27,7 +23,7 @@ class EventsListViewModel: NSObject, EventsViewModelDelegate {
     
     var dataSource: EventsDataSourceProtocol!
     
-    var fetchDelegate: TaskFetchDelegate?
+
     var errorDelegate: ErrorAlertDelegate?
     
     var events: [Event] { return dataSource.events }
@@ -48,7 +44,6 @@ class EventsListViewModel: NSObject, EventsViewModelDelegate {
             if error == nil{
                 print("Finished fetching events!")
                 print(self.events)
-                self.fetchDelegate?.loadData()
                 completion?()
             }else{
                 self.errorDelegate?.alertError(msg: "Fetch failed, please try again")
