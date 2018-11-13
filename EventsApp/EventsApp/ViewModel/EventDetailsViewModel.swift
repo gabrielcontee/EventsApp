@@ -12,6 +12,9 @@ protocol DetailViewModelDelegate {
     
     func fetchEventData(eventId: String, completion: @escaping ()->())
     var eventId: String {get set}
+    var eventTitle: Box<String> {get}
+    var eventImage: Box<String> {get}
+    var eventDescription: Box<String> {get}
 }
 
 class EventDetailsViewModel: NSObject, DetailViewModelDelegate {
@@ -22,13 +25,21 @@ class EventDetailsViewModel: NSObject, DetailViewModelDelegate {
     
     var eventId: String = ""
     
-    lazy var eventTitle: Box<String> = Box("")
-    lazy var eventImage: Box<String> = Box("")
-    lazy var eventDescription: Box<String> = Box("")
+    var eventTitle: Box<String> = Box("")
+    var eventImage: Box<String> = Box("")
+    var eventDescription: Box<String> = Box("")
     
     func fetchEventData(eventId: String, completion: @escaping ()->()){
         dataSource.fetchDetails(id: eventId) { (error) in
             if error == nil{
+                guard let cv = self.dataSource.currentEvent, let title = cv.title, let image = cv.image, let description = cv.description else{
+                    completion()
+                    return
+                }
+                self.eventTitle.value = title
+                self.eventImage.value = image
+                self.eventDescription.value = description
+                
                 completion()
             }else{
                 print("Could not load event details")

@@ -21,9 +21,20 @@ class EventDetailsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.fetchEventData(eventId: viewModel.eventId) {
+        viewModel.eventTitle.bind(key: String(describing: self)) { (result) in
+            self.eventTitleLabel.text = result
+        }
+        viewModel.eventImage.bind(key: String(describing: self)) { (result) in
+            self.eventImageView.downloaded(link: result)
+        }
+        viewModel.eventDescription.bind(key: String(describing: self)) { (result) in
+            self.eventDescription.text = result
         }
         
+        
+        
+        viewModel.fetchEventData(eventId: viewModel.eventId) {
+        }
         
     }
     
