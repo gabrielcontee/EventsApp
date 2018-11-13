@@ -1,5 +1,5 @@
 //
-//  GetEvents.swift
+//  GetEventDetails.swift
 //  EventsApp
 //
 //  Created by Gabriel Conte on 12/11/18.
@@ -8,14 +8,17 @@
 
 import Foundation
 
-struct GetEvents: APIRequest {
+struct GetEventDetails: APIRequest {
     
-    typealias Response = [Event]
+    typealias Response = Event
     
     var resourceName: String {
-        return "/events"
+        return "/events/\(id)"
     }
     
-    init() {
+    private let id: String
+    
+    init(id: String) {
+        self.id = id
     }
 }

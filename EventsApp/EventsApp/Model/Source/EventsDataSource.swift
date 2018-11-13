@@ -13,7 +13,12 @@ protocol EventsDataSourceProtocol {
     var events: [Event] {get set}
 }
 
-class EventsDataSource: NSObject, EventsDataSourceProtocol {
+protocol EventsDetailsDataSourceProtocol {
+    func fetchDetails(id: String, completion: @escaping (Error?)->())
+    func getCurrentEvent(id: String) -> Event?
+}
+
+class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSourceProtocol {
 
     typealias Id = Int
     
@@ -34,5 +39,18 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol {
                 completion(error)
             }
         }
+    }
+    
+    func fetchDetails(id: String, completion: @escaping (Error?) -> ()) {
+        
+    }
+    
+    func getCurrentEvent(id: String) -> Event?{
+        let event = events.filter({$0.id == id}).first
+            ?? nil
+        guard let current = event else{
+            return nil
+        }
+        return current
     }
 }

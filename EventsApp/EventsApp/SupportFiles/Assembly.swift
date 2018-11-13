@@ -12,6 +12,8 @@ import SwinjectStoryboard
 
 extension SwinjectStoryboard{
     
+    typealias DataSourceProtocol = EventsDetailsDataSourceProtocol & EventsDataSourceProtocol
+    
     class func setup(){
         setupDataSource()
         
@@ -39,7 +41,7 @@ extension SwinjectStoryboard{
     private class func setupEventsViewModel(){
         defaultContainer.register(EventsViewModelDelegate.self) { r in
             let vm = EventsListViewModel()
-            vm.dataSource = r.resolve(EventsDataSourceProtocol.self)
+            vm.dataSource = r.resolve(DataSourceProtocol.self)
             return vm
         }
     }
@@ -47,15 +49,16 @@ extension SwinjectStoryboard{
     private class func setupDetailsViewModel(){
         defaultContainer.register(DetailViewModelDelegate.self) { r in
             let vm = EventDetailsViewModel()
-            vm.dataSource = r.resolve(EventsDataSourceProtocol.self)
+            vm.dataSource = r.resolve(DataSourceProtocol.self)
             return vm
         }
     }
     
     private class func setupDataSource(){
-        defaultContainer.register(EventsDataSourceProtocol.self) { _ in
+        defaultContainer.register(DataSourceProtocol.self) { _ in
             return EventsDataSource()
-            }.inObjectScope(.container)
+        }.inObjectScope(.container)
     }
+
 }
 
