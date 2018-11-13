@@ -8,20 +8,29 @@
 
 import Foundation
 
-class EventsTableViewModel: NSObject {
+protocol TableViewModelDelegate {
+    func event(for index: Int) -> Event?
+    func numberOfEvents() -> Int
+    var eventsBox: Box<[Event]> {get set}
+    var selectedEventId: String {get set}
+}
+
+class EventsTableViewModel: NSObject, TableViewModelDelegate {
     
-    private lazy var dataSource = EventsDataSource()
+    var dataSource: EventsDataSourceProtocol!
     
     private var events: [Event] { return dataSource.events }
     
-    lazy var eventsBox: Box<[Event]> = Box([])
+    var eventsBox: Box<[Event]> = Box([])
     
-    lazy var selectedEventId: String = ""
+    var selectedEventId: String = ""
     
     override init() {
         super.init()
         
-        dataSource.fetchEvents { (error) in
+        dataSource = EventsDataSource()
+        
+        dataSource.fetchEvents { [unowned self] (error) in
             if error == nil{
                 self.eventsBox.value = self.events
             }

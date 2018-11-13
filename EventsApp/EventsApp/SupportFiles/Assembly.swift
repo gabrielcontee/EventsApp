@@ -15,8 +15,11 @@ extension SwinjectStoryboard{
     typealias DataSourceProtocol = EventsDetailsDataSourceProtocol & EventsDataSourceProtocol
     
     class func setup(){
+        setupService()
+        
         setupDataSource()
         
+        setupTableViewModel()
         setupEventsViewModel()
         setupDetailsViewModel()
         
@@ -33,6 +36,11 @@ extension SwinjectStoryboard{
 
         defaultContainer.storyboardInitCompleted(EventDetailsViewController.self) { (r, c) in
             let vm = r.resolve(DetailViewModelDelegate.self)
+            c.viewModel = vm
+        }
+        
+        defaultContainer.storyboardInitCompleted(MainTableViewController.self) { (r, c) in
+            let vm = r.resolve(TableViewModelDelegate.self)
             c.viewModel = vm
         }
 
@@ -54,9 +62,25 @@ extension SwinjectStoryboard{
         }
     }
     
+    private class func setupTableViewModel(){
+        defaultContainer.register(TableViewModelDelegate.self) { r in
+            let vm = EventsTableViewModel()
+            vm.dataSource = r.resolve(DataSourceProtocol.self)
+            return vm
+        }
+    }
+    
     private class func setupDataSource(){
-        defaultContainer.register(DataSourceProtocol.self) { _ in
-            return EventsDataSource()
+        defaultContainer.register(DataSourceProtocol.self) { r in
+            let ds = EventsDataSource()
+            ds.clientAPI = r.resolve(ServiceProtocol.self)
+            return ds
+        }
+    }
+    
+    private class func setupService(){
+        defaultContainer.register(ServiceProtocol.self) { _ in
+            return ClientAPI()
         }.inObjectScope(.container)
     }
 

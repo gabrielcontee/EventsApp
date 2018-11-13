@@ -13,7 +13,7 @@ private let detailsSegue = "showDetails"
 
 class MainTableViewController: UITableViewController {
     
-    private lazy var viewModel = EventsTableViewModel()
+    var viewModel: TableViewModelDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()

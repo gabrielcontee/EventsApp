@@ -8,7 +8,11 @@
 
 import Foundation
 
-class ClientAPI {
+protocol ServiceProtocol {
+    func send<T: APIRequest>(_ request: T, completion: @escaping ResultCallback<T.Response>)
+}
+
+class ClientAPI: ServiceProtocol {
     
     private let baseEndpointUrl = "http://5b840ba5db24a100142dcd8c.mockapi.io/api"
     private let session = URLSession(configuration: .default)

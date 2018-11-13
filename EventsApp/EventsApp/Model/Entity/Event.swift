@@ -12,7 +12,11 @@ struct Event: Decodable{
     
     let id: String?
     let title: String?
-    let price: Float?
     let image: String?
     
+    init(id: String? = "", title: String? = "", image: String = "") {
+        self.id = id
+        self.title = title
+        self.image = image
+    }
 }

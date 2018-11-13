@@ -44,7 +44,7 @@ class EventsListViewModel: NSObject, EventsViewModelDelegate {
     }
     
     func fetchAllTasks(completion:(()->())? = nil){
-        dataSource.fetchEvents { (error) in
+        dataSource.fetchEvents { [unowned self] (error) in
             if error == nil{
                 print("Finished fetching events!")
                 print(self.events)

@@ -30,7 +30,7 @@ class EventDetailsViewModel: NSObject, DetailViewModelDelegate {
     var eventDescription: Box<String> = Box("")
     
     func fetchEventData(eventId: String, completion: @escaping ()->()){
-        dataSource.fetchDetails(id: eventId) { (error) in
+        dataSource.fetchDetails(id: eventId) { [unowned self] (error) in
             if error == nil{
                 guard let cv = self.dataSource.currentEvent, let title = cv.title, let image = cv.image, let description = cv.description else{
                     completion()

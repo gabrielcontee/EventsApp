@@ -22,7 +22,7 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
     
     typealias Id = Int
     
-    private lazy var clientAPI = ClientAPI()
+    var clientAPI: ServiceProtocol!
     
     var events: [Event] = []
     
@@ -31,7 +31,7 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
     // Sends a fetch request for the list of tasks from API
     func fetchEvents(completion: @escaping (Error?)->()){
         
-        clientAPI.send(GetEvents()) { (result) in
+        clientAPI.send(GetEvents()) { [unowned self] (result) in
             switch result{
             case .success(let events):
                 self.events = events
@@ -45,7 +45,7 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
     
     func fetchDetails(id: String, completion: @escaping (Error?) -> ()) {
         
-        clientAPI.send(GetEventDetails(id: id)) { (result) in
+        clientAPI.send(GetEventDetails(id: id)) { [unowned self] (result) in
             switch result{
             case .success(let event):
                 self.currentEvent = event

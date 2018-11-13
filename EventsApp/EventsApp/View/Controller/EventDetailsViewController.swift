@@ -15,23 +15,26 @@ class EventDetailsViewController: UIViewController{
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var eventTitleLabel: UILabel!
     @IBOutlet weak var checkInButton: UIButton!
-    @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var eventDescription: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.eventTitle.bind(key: String(describing: self)) { (result) in
-            self.eventTitleLabel.text = result
+            DispatchQueue.main.async {
+                self.eventTitleLabel.text = result
+            }
         }
         viewModel.eventImage.bind(key: String(describing: self)) { (result) in
-            self.eventImageView.downloaded(link: result)
+            DispatchQueue.main.async {
+                self.eventImageView.downloaded(link: result)
+            }
         }
         viewModel.eventDescription.bind(key: String(describing: self)) { (result) in
-            self.eventDescription.text = result
+            DispatchQueue.main.async {
+                self.eventDescription.text = result
+            }
         }
-        
-        
         
         viewModel.fetchEventData(eventId: viewModel.eventId) {
         }
