@@ -26,6 +26,7 @@ class MainTableViewController: UITableViewController {
             }
         }
         
+        self.tableView.rowHeight = 400.0
     }
 }
 
