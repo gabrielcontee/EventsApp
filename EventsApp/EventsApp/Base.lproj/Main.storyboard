@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G5e-Fi-i4e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="2327.1999999999998" y="26.53673163418291"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="enH-Vq-VOQ">
             <objects>
-                <viewController id="iAR-VM-tMl" sceneMemberID="viewController">
+                <viewController id="iAR-VM-tMl" customClass="LoginViewController" customModule="EventsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sV8-gU-Y78">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,7 +197,7 @@
                                                 <rect key="frame" x="54" y="0.0" width="265" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -214,29 +214,51 @@
                                                 <rect key="frame" x="50" y="0.0" width="269" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9z-OT-oWR">
+                                <rect key="frame" x="149.5" y="459" width="76" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="9PC-vm-caP"/>
+                                </constraints>
+                                <state key="normal" title="Entrar">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginAction:" destination="iAR-VM-tMl" eventType="touchUpInside" id="8Ik-6V-M78"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="puo-vO-nK3" firstAttribute="width" secondItem="sV8-gU-Y78" secondAttribute="width" multiplier="0.85" id="3YW-us-aaC"/>
                             <constraint firstItem="puo-vO-nK3" firstAttribute="centerY" secondItem="sV8-gU-Y78" secondAttribute="centerY" id="NVh-qE-inm"/>
+                            <constraint firstItem="H9z-OT-oWR" firstAttribute="centerX" secondItem="sV8-gU-Y78" secondAttribute="centerX" id="atV-I7-npU"/>
+                            <constraint firstItem="H9z-OT-oWR" firstAttribute="top" secondItem="puo-vO-nK3" secondAttribute="bottom" constant="64" id="ndJ-Hn-I0r"/>
                             <constraint firstItem="puo-vO-nK3" firstAttribute="centerX" secondItem="sV8-gU-Y78" secondAttribute="centerX" id="xRq-jF-ELK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IPo-GB-UqZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="NjQ-OX-6w6"/>
                     <connections>
-                        <segue destination="R7h-7Q-HSZ" kind="show" id="teU-GR-qhL"/>
+                        <outlet property="loginEmailTextField" destination="lOS-Ml-Fai" id="DW5-c8-1iN"/>
+                        <outlet property="loginNameTextField" destination="DS8-4K-kOv" id="5SG-2T-bJk"/>
+                        <segue destination="R7h-7Q-HSZ" kind="show" identifier="goToEventsList" id="teU-GR-qhL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmP-kl-z3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655.20000000000005" y="35.532233883058474"/>
+            <point key="canvasLocation" x="616.79999999999995" y="26.53673163418291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zb6-BK-wCD">

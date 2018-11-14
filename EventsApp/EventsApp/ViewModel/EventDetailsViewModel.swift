@@ -22,7 +22,7 @@ class EventDetailsViewModel: NSObject, DetailViewModelDelegate {
     
     var dataSource: EventsDetailsDataSourceProtocol!
     
-    var currentEvent: EventDetails? { return dataSource?.currentEvent }
+    var currentEvent: Event? { return dataSource?.currentEvent }
     
     var eventId: String = ""
     

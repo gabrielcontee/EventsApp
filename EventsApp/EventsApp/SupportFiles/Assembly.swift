@@ -12,15 +12,15 @@ import SwinjectStoryboard
 
 extension SwinjectStoryboard{
     
-    typealias DataSourceProtocol = EventsDetailsDataSourceProtocol & EventsDataSourceProtocol
+    typealias DataSourceProtocol = EventsDetailsDataSourceProtocol & EventsDataSourceProtocol & LoginDataSource
     
     class func setup(){
         setupService()
         
         setupDataSource()
         
+        setupLoginViewModel()
         setupTableViewModel()
-        setupEventsViewModel()
         setupDetailsViewModel()
         
         setupViewController()
@@ -29,8 +29,9 @@ extension SwinjectStoryboard{
     
     private class func setupViewController(){
         
-        defaultContainer.storyboardInitCompleted(EventsViewController.self) { (r, c) in
-            c.viewModel = r.resolve(EventsViewModelDelegate.self)
+        defaultContainer.storyboardInitCompleted(LoginViewController.self) { (r, c) in
+            let vm = r.resolve(LoginViewModelDelegate.self)
+            c.viewModel = vm
         }
 
         defaultContainer.storyboardInitCompleted(EventDetailsViewController.self) { (r, c) in
@@ -45,14 +46,6 @@ extension SwinjectStoryboard{
 
     }
 
-    private class func setupEventsViewModel(){
-        defaultContainer.register(EventsViewModelDelegate.self) { r in
-            let vm = EventsListViewModel()
-            vm.dataSource = r.resolve(DataSourceProtocol.self)
-            return vm
-        }
-    }
-
     private class func setupDetailsViewModel(){
         defaultContainer.register(DetailViewModelDelegate.self) { r in
             let vm = EventDetailsViewModel()
@@ -65,6 +58,14 @@ extension SwinjectStoryboard{
         defaultContainer.register(TableViewModelDelegate.self) { r in
             let ds = r.resolve(DataSourceProtocol.self)
             let vm = EventsTableViewModel(dataSource: ds)
+            return vm
+        }
+    }
+    
+    private class func setupLoginViewModel(){
+        defaultContainer.register(LoginViewModelDelegate.self) { r in
+            let vm = LoginViewModel()
+            vm.dataSource = r.resolve(DataSourceProtocol.self)
             return vm
         }
     }
