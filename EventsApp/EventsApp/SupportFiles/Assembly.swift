@@ -75,7 +75,7 @@ extension SwinjectStoryboard{
             let ds = EventsDataSource()
             ds.clientAPI = r.resolve(ServiceProtocol.self)
             return ds
-        }
+        }.inObjectScope(.container)
     }
     
     private class func setupService(){

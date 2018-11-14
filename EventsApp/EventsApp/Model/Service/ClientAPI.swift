@@ -75,8 +75,9 @@ class ClientAPI: ServiceProtocol {
             }
             
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    print(json)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                if let dd = json as? [String: Any] {
+                    print(dd)
                 }
             } catch let error {
                 print(error.localizedDescription)
