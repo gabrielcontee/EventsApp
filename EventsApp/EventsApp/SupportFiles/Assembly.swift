@@ -12,15 +12,19 @@ import SwinjectStoryboard
 
 extension SwinjectStoryboard{
     
+    typealias DataSourceProtocol = EventsDetailsDataSourceProtocol & EventsDataSourceProtocol
+    
     class func setup(){
+        setupService()
+        
         setupDataSource()
         
+        setupTableViewModel()
         setupEventsViewModel()
         setupDetailsViewModel()
         
         setupViewController()
     }
-    
     
     
     private class func setupViewController(){
@@ -33,13 +37,18 @@ extension SwinjectStoryboard{
             let vm = r.resolve(DetailViewModelDelegate.self)
             c.viewModel = vm
         }
+        
+        defaultContainer.storyboardInitCompleted(MainTableViewController.self) { (r, c) in
+            let vm = r.resolve(TableViewModelDelegate.self)
+            c.viewModel = vm
+        }
 
     }
 
     private class func setupEventsViewModel(){
         defaultContainer.register(EventsViewModelDelegate.self) { r in
             let vm = EventsListViewModel()
-            vm.dataSource = r.resolve(EventsDataSourceProtocol.self)
+            vm.dataSource = r.resolve(DataSourceProtocol.self)
             return vm
         }
     }
@@ -47,15 +56,32 @@ extension SwinjectStoryboard{
     private class func setupDetailsViewModel(){
         defaultContainer.register(DetailViewModelDelegate.self) { r in
             let vm = EventDetailsViewModel()
-            vm.dataSource = r.resolve(EventsDataSourceProtocol.self)
+            vm.dataSource = r.resolve(DataSourceProtocol.self)
+            return vm
+        }
+    }
+    
+    private class func setupTableViewModel(){
+        defaultContainer.register(TableViewModelDelegate.self) { r in
+            let ds = r.resolve(DataSourceProtocol.self)
+            let vm = EventsTableViewModel(dataSource: ds)
             return vm
         }
     }
     
     private class func setupDataSource(){
-        defaultContainer.register(EventsDataSourceProtocol.self) { _ in
-            return EventsDataSource()
-            }.inObjectScope(.container)
+        defaultContainer.register(DataSourceProtocol.self) { r in
+            let ds = EventsDataSource()
+            ds.clientAPI = r.resolve(ServiceProtocol.self)
+            return ds
+        }
     }
+    
+    private class func setupService(){
+        defaultContainer.register(ServiceProtocol.self) { _ in
+            return ClientAPI()
+        }.inObjectScope(.container)
+    }
+
 }
 

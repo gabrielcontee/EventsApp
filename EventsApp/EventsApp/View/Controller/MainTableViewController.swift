@@ -13,7 +13,7 @@ private let detailsSegue = "showDetails"
 
 class MainTableViewController: UITableViewController {
     
-    private lazy var viewModel = EventsTableViewModel()
+    var viewModel: TableViewModelDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,13 @@ class MainTableViewController: UITableViewController {
         }
         
         self.tableView.rowHeight = 400.0
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == detailsSegue) {
+            let detailsController: EventDetailsViewController = segue.destination as! EventDetailsViewController
+            detailsController.viewModel.eventId = viewModel.selectedEventId
+        }
     }
 }
 
@@ -52,6 +59,10 @@ extension MainTableViewController {
 // Delegate
 extension MainTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let id  = viewModel.event(for: indexPath.row)?.id {
+            viewModel.selectedEventId = id
+        }
+        
         self.performSegue(withIdentifier: detailsSegue, sender: self)
     }
 }

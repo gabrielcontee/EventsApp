@@ -12,7 +12,6 @@ struct GetEvents: APIRequest {
     
     typealias Response = [Event]
     
-    // Notice how we create a composed resourceName
     var resourceName: String {
         return "/events"
     }

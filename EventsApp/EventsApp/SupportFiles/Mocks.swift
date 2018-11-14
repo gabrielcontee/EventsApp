@@ -12,5 +12,5 @@ class Mocks: NSObject {
     
     static var shared = Mocks()
     
-    
+    lazy var event1 = Event(id: "", title: "", image: "")
 }
