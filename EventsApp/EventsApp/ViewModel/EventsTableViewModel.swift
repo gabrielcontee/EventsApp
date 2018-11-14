@@ -13,6 +13,7 @@ protocol TableViewModelDelegate {
     func numberOfEvents() -> Int
     var eventsBox: Box<[Event]> {get set}
     var selectedEventId: String {get set}
+    func fetchEvents()
 }
 
 class EventsTableViewModel: NSObject, TableViewModelDelegate {
@@ -30,12 +31,16 @@ class EventsTableViewModel: NSObject, TableViewModelDelegate {
         
         super.init()
         
+        fetchEvents()
+        
+    }
+    
+    func fetchEvents(){
         dataSource?.fetchEvents { [unowned self] (error) in
             if error == nil{
                 self.eventsBox.value = self.events
             }
         }
-        
     }
     
     func event(for index: Int) -> Event?{

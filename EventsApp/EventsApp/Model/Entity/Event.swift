@@ -13,12 +13,10 @@ struct Event: Decodable{
     let id: String?
     let title: String?
     let image: String?
-    let email: String?
     
-    init(id: String? = "", title: String? = "", image: String = "", email: String = "") {
+    init(id: String? = "", title: String? = "", image: String = "") {
         self.id = id
         self.title = title
         self.image = image
-        self.email = email
     }
 }

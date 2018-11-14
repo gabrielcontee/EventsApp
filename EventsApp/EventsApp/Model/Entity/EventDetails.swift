@@ -16,5 +16,15 @@ struct EventDetails: Decodable{
     let image: String?
     let email: String?
     let description: String?
+    
+    init(id: String? = "", title: String? = "", price: Float?, image: String = "", email: String = "", description: String?) {
+        self.id = id
+        self.title = title
+        self.image = image
+        self.email = email
+        self.price = price
+        self.description = description
+    }
+    
 }
 

@@ -67,8 +67,10 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
         return current
     }
     
+    
+    
     func checkinRequest(eventId: String){
-        guard let event = getCurrentEvent(id: eventId), let id = event.id, let name = event.title, let email = event.email else{
+        guard let event = currentEvent, let id = event.id, let name = event.title, let email = event.email else{
             return
         }
         
