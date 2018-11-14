@@ -16,10 +16,14 @@ protocol EventsDataSourceProtocol {
 protocol EventsDetailsDataSourceProtocol {
     func fetchDetails(id: String, completion: @escaping (Error?)->())
     func checkinRequest(eventId: String)
-    var currentEvent: EventDetails? {get}
+    var currentEvent: Event? {get}
 }
 
-class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSourceProtocol {
+protocol LoginDataSource {
+    func setLoginData(name: String, email: String)
+}
+
+class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSourceProtocol, LoginDataSource {
     
     typealias Id = Int
     
@@ -27,7 +31,9 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
     
     var events: [Event] = []
     
-    var currentEvent: EventDetails?
+    var currentEvent: Event?
+    
+    var username: User?
     
     // Sends a fetch request for the list of tasks from API
     func fetchEvents(completion: @escaping (Error?)->()){
@@ -67,8 +73,12 @@ class EventsDataSource: NSObject, EventsDataSourceProtocol, EventsDetailsDataSou
         return current
     }
     
+    func setLoginData(name: String, email: String) {
+        self.username = User(name: name, email: email)
+    }
+    
     func checkinRequest(eventId: String){
-        guard let event = getCurrentEvent(id: eventId), let id = event.id, let name = event.title, let email = event.email else{
+        guard let event = currentEvent, let id = event.id, let name = self.username?.name, let email = self.username?.email else{
             return
         }
         

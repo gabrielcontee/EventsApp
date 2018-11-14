@@ -12,15 +12,15 @@ import SwinjectStoryboard
 
 extension SwinjectStoryboard{
     
-    typealias DataSourceProtocol = EventsDetailsDataSourceProtocol & EventsDataSourceProtocol
+    typealias DataSourceProtocol = EventsDetailsDataSourceProtocol & EventsDataSourceProtocol & LoginDataSource
     
     class func setup(){
         setupService()
         
         setupDataSource()
         
+        setupLoginViewModel()
         setupTableViewModel()
-        setupEventsViewModel()
         setupDetailsViewModel()
         
         setupViewController()
@@ -29,8 +29,9 @@ extension SwinjectStoryboard{
     
     private class func setupViewController(){
         
-        defaultContainer.storyboardInitCompleted(EventsViewController.self) { (r, c) in
-            c.viewModel = r.resolve(EventsViewModelDelegate.self)
+        defaultContainer.storyboardInitCompleted(LoginViewController.self) { (r, c) in
+            let vm = r.resolve(LoginViewModelDelegate.self)
+            c.viewModel = vm
         }
 
         defaultContainer.storyboardInitCompleted(EventDetailsViewController.self) { (r, c) in
@@ -43,14 +44,6 @@ extension SwinjectStoryboard{
             c.viewModel = vm
         }
 
-    }
-
-    private class func setupEventsViewModel(){
-        defaultContainer.register(EventsViewModelDelegate.self) { r in
-            let vm = EventsListViewModel()
-            vm.dataSource = r.resolve(DataSourceProtocol.self)
-            return vm
-        }
     }
 
     private class func setupDetailsViewModel(){
@@ -69,12 +62,20 @@ extension SwinjectStoryboard{
         }
     }
     
+    private class func setupLoginViewModel(){
+        defaultContainer.register(LoginViewModelDelegate.self) { r in
+            let vm = LoginViewModel()
+            vm.dataSource = r.resolve(DataSourceProtocol.self)
+            return vm
+        }
+    }
+    
     private class func setupDataSource(){
         defaultContainer.register(DataSourceProtocol.self) { r in
             let ds = EventsDataSource()
             ds.clientAPI = r.resolve(ServiceProtocol.self)
             return ds
-        }
+        }.inObjectScope(.container)
     }
     
     private class func setupService(){
